@@ -224,10 +224,10 @@ filt_NPX%>% distinct(Gene_Symbol) %>% nrow()
 QC_warns<-filt_NPX %>% filter(QC_Warning == 'Warning') #filter rows which have a QC warning
 QC_warns %>% group_by(SampleID, Panel,QC_Warning) %>% summarise(count = n(), .groups = 'drop')#Print a summary
 
-#3 samples had QC warnings on the Inflammation assay: HC23.1, T125.2, T43.1. 
-#NPX values for T42.1 are already NA.Need to do this for others:
-filt_NPX[filt_NPX$SampleID=="T125.2" & filt_NPX$QC_Warning=="Warning" & filt_NPX$Panel=="Olink Inflammation","NPX"]<-NA
-filt_NPX[filt_NPX$SampleID=="HC23.1" & filt_NPX$QC_Warning=="Warning" & filt_NPX$Panel=="Olink Inflammation","NPX"]<-NA
+#3 samples had QC warnings on the Inflammation assay: HC13, T28, T84. 
+#NPX values for T28 are already NA.Need to do this for others:
+filt_NPX[filt_NPX$SampleID=="HC13" & filt_NPX$QC_Warning=="Warning" & filt_NPX$Panel=="Olink Inflammation","NPX"]<-NA
+filt_NPX[filt_NPX$SampleID=="T84" & filt_NPX$QC_Warning=="Warning" & filt_NPX$Panel=="Olink Inflammation","NPX"]<-NA
 
 # Check detectability % (NPX > LOD) --------------------------------
 

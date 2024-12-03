@@ -193,7 +193,7 @@ dim(na.omit(C1_data[,8:165]))
 PCA_LVV<-PCA(na.omit(C1_data[,8:165]), scale.unit=TRUE,graph=FALSE)
 
 #Create group factor variable for colour labels on plot, taking into account omitted NA cases
-grp<-C1_data %>% filter(!(SampleID %in% c('HC23.1', 'T125.2', 'T43.1'))) %>% select(Group) 
+grp<-C1_data %>% filter(!(SampleID %in% c('HC13', 'T28', 'T84'))) %>% select(Group) 
 grp<-as.factor(grp[,1])
 grp<-factor(grp,levels=c("HC", "TAK","LV.GCA"))
 #Create initial PCA ggplot

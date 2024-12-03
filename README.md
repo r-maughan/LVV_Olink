@@ -20,6 +20,7 @@ In this project, we analysed the levels of 184 inflammation and vascular related
 
 * Download the full repo complete with all directories
 * Run the QC and DA scripts within each Cohort's directory to conduct analysis and produce output files
+* The QC script generates the same input data files used by the DA script for analysis
 
 
 ## Authors
