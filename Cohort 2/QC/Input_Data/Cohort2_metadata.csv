@@ -1,0 +1,240 @@
+SampleID,Site,Diagnosis,Subgroup,Age_bin,Sex,Ethnicity,Freezer_time,Cranial_Isch_Comp,PMR,TAB,USS
+NGCA11,1,Not_C-GCA,Not_C-GCA,"(40, 50)",Female,White,11.2,Yes,No,Negative,Negative
+NGCA33,1,Not_C-GCA,Not_C-GCA,"(40, 50)",Female,White,9.7,No,No,Negative,Negative
+GCA102,12,C-GCA,C-GCA TAB-,"(40, 50)",Female,White,9.4,No,No,Negative,Positive
+NGCA86,12,Not_C-GCA,Not_C-GCA,"(40, 50)",Male,White,11.2,No,No,Negative,Negative
+NGCA76,12,Not_C-GCA,Not_C-GCA,"(50, 60)",Male,White,8.1,No,No,Negative,Negative
+NGCA8,1,Not_C-GCA,Not_C-GCA,"(50, 60)",Female,White,11.3,No,No,Negative,Positive
+NGCA77,12,Not_C-GCA,Not_C-GCA,"(50, 60)",Female,White,8.1,Yes,No,Negative,Negative
+NGCA35,1,Not_C-GCA,Not_C-GCA,"(50, 60)",Female,White,9.6,No,No,Negative,Negative
+GCA97,12,C-GCA,C-GCA TAB-,"(50, 60)",Female,White,10,No,No,Negative,Positive
+NGCA21,1,Not_C-GCA,Not_C-GCA,"(50, 60)",Female,White,10.5,No,No,Negative,Negative
+NGCA74,12,Not_C-GCA,Not_C-GCA,"(50, 60)",Female,White,9.2,Yes,No,Negative,Positive
+NGCA66,12,Not_C-GCA,Not_C-GCA,"(50, 60)",Male,White,10.3,Yes,No,Negative,Positive
+GCA9,1,C-GCA,C-GCA TAB+,"(50, 60)",Female,White,10.1,No,No,Positive,Negative
+NGCA25,1,Not_C-GCA,Not_C-GCA,"(50, 60)",Male,White,10.4,No,No,Negative,Negative
+NGCA51,10,Not_C-GCA,Not_C-GCA,"(50, 60)",Male,White,9.8,No,No,Negative,Negative
+NGCA89,12,Not_C-GCA,Not_C-GCA,"(50, 60)",Male,White,10,No,No,Negative,Positive
+GCA104,12,C-GCA,C-GCA TAB-,"(50, 60)",Female,White,9.2,No,No,Negative,Positive
+GCA70,1,C-GCA,C-GCA TAB-,"(50, 60)",Female,White,10.6,No,No,Negative,Negative
+NGCA73,12,Not_C-GCA,Not_C-GCA,"(50, 60)",Female,White,9.3,No,No,Negative,Negative
+NGCA71,12,Not_C-GCA,Not_C-GCA,"(50, 60)",Female,White,9.5,No,No,Negative,Negative
+GCA124,23,C-GCA,C-GCA TAB-,"(50, 60)",Female,White,9,Yes,No,Negative,Positive
+NGCA32,1,Not_C-GCA,Not_C-GCA,"(50, 60)",Female,White,9.8,No,No,Negative,Negative
+NGCA79,34,Not_C-GCA,Not_C-GCA,"(50, 60)",Female,White,9.2,No,No,Negative,Negative
+NGCA1,1,Not_C-GCA,Not_C-GCA,"(50, 60)",Female,White,11.6,No,No,Negative,Negative
+NGCA3,1,Not_C-GCA,Not_C-GCA,"(50, 60)",Female,White,11.5,No,No,Negative,Negative
+GCA84,3,C-GCA,C-GCA TAB-,"(50, 60)",Female,White,9.7,Yes,No,Negative,Positive
+GCA59,1,C-GCA,C-GCA TAB-,"(50, 60)",Female,White,11.4,No,No,Negative,Negative
+NGCA7,1,Not_C-GCA,Not_C-GCA,"(50, 60)",Female,White,11.3,No,No,Negative,Negative
+NGCA83,1,Not_C-GCA,Not_C-GCA,"(50, 60)",Male,White,11,Yes,No,Negative,Positive
+NGCA54,10,Not_C-GCA,Not_C-GCA,"(50, 60)",Female,White,9.5,No,No,Negative,Negative
+GCA69,1,C-GCA,C-GCA TAB-,"(60, 70)",Female,White,10.6,No,No,Negative,Positive
+GCA108,12,C-GCA,C-GCA TAB-,"(60, 70)",Male,White,9,Yes,No,Negative,Negative
+GCA23,12,C-GCA,C-GCA TAB+,"(60, 70)",Male,White,11,No,No,Positive,Positive
+GCA133,29,C-GCA,C-GCA TAB-,"(60, 70)",Female,White,8.9,No,No,Negative, 
+NGCA18,1,Not_C-GCA,Not_C-GCA,"(60, 70)",Female,White,10.7,No,Yes,Negative,Negative
+NGCA13,1,Not_C-GCA,Not_C-GCA,"(60, 70)",Male,White,11.1,No,No,Negative,Positive
+NGCA34,1,Not_C-GCA,Not_C-GCA,"(60, 70)",Female,Other,9.6,No,No,Negative,Negative
+NGCA43,1,Not_C-GCA,Not_C-GCA,"(60, 70)",Male,White,9.2,No,No,Negative,Negative
+GCA122,21,C-GCA,C-GCA TAB-,"(60, 70)",Male,White,9.3,No,No,Negative,Positive
+GCA10,1,C-GCA,C-GCA TAB+,"(60, 70)",Female,White,9.8,Yes,No,Positive,Negative
+GCA90,12,C-GCA,C-GCA TAB-,"(60, 70)",Female,White,11.1,Yes,No,Negative,Positive
+GCA28,12,C-GCA,C-GCA TAB+,"(60, 70)",Female,White,10.3,No,No,Positive,Positive
+GCA121,18,C-GCA,C-GCA TAB-,"(60, 70)",Female,White,8.1,No,No,Negative,Negative
+GCA58,1,C-GCA,C-GCA TAB-,"(60, 70)",Female,White,11.6,No,No,Negative,Negative
+GCA145,10,C-GCA,C-GCA TAB-,"(60, 70)",Male,White,9.9,No,No,Negative,Negative
+GCA150,12,C-GCA,"C-GCA, no TAB","(60, 70)",Female,White,9.5,No,No,,Negative
+NGCA29,1,Not_C-GCA,Not_C-GCA,"(60, 70)",Male,White,10,Yes,Yes,Negative,Negative
+NGCA40,1,Not_C-GCA,Not_C-GCA,"(60, 70)",Female,White,9.3,No,No,Negative,Negative
+GCA109,12,C-GCA,C-GCA TAB-,"(60, 70)",Male,White,9,No,No,Negative,Positive
+GCA142,24,C-GCA,C-GCA TAB-,"(60, 70)",Male,White,9.1,No,No,Negative,Positive
+NGCA16,1,Not_C-GCA,Not_C-GCA,"(60, 70)",Male,White,10.9,No,No,Negative,Negative
+NGCA10,1,Not_C-GCA,Not_C-GCA,"(60, 70)",Female,White,11.3,No,No,Negative,Negative
+NGCA72,12,Not_C-GCA,Not_C-GCA,"(60, 70)",Female,White,9.5,No,No,,Negative
+NGCA14,1,Not_C-GCA,Not_C-GCA,"(60, 70)",Female,White,11,No,No,Negative,Negative
+GCA48,27,C-GCA,C-GCA TAB+,"(60, 70)",Female,White,8.6,No,No,Positive,Negative
+GCA119,18,C-GCA,C-GCA TAB-,"(60, 70)",Female,White,8.8,No,No,Negative,Negative
+GCA118,17,C-GCA,C-GCA TAB-,"(60, 70)",Female,White,9.4,Yes,No,Negative,Positive
+GCA53,36,C-GCA,C-GCA TAB+,"(60, 70)",Female,White,8.5,No,No,Positive,Negative
+GCA15,3,C-GCA,C-GCA TAB+,"(60, 70)",Female,White,8.7,Yes,No,Positive,Negative
+GCA136,34,C-GCA,C-GCA TAB-,"(60, 70)",Male,White,8.4,No,No,Negative,Negative
+GCA79,1,C-GCA,C-GCA TAB-,"(60, 70)",Female,White,9,No,No,Negative,Negative
+GCA111,12,C-GCA,C-GCA TAB-,"(60, 70)",Female,White,8.9,No,No,Negative,Negative
+NGCA87,12,Not_C-GCA,Not_C-GCA,"(60, 70)",Male,White,8.2,No,Yes,Negative,Positive
+NGCA68,12,Not_C-GCA,Not_C-GCA,"(60, 70)",Female,White,9.9,No,No,Negative,Negative
+GCA16,3,C-GCA,C-GCA TAB+,"(60, 70)",Female,White,8.3,No,No,Positive,Negative
+GCA125,24,C-GCA,C-GCA TAB-,"(60, 70)",Female,White,9.7,No,No,Negative,Positive
+GCA4,1,C-GCA,C-GCA TAB+,"(60, 70)",Male,White,10.6,No,No,Positive,Positive
+GCA41,15,C-GCA,C-GCA TAB+,"(60, 70)",Female,White,8.2,No,No,Positive,Positive
+GCA50,29,C-GCA,C-GCA TAB+,"(60, 70)",Male,White,8.7,No,No,Positive,Positive
+GCA144,1,C-GCA,C-GCA TAB-,"(60, 70)",Male,White,9.9,No,No,Negative,Negative
+GCA134,34,C-GCA,C-GCA TAB-,"(60, 70)",Female,White,8.9,No,No,Negative,Negative
+GCA105,12,C-GCA,C-GCA TAB-,"(60, 70)",Female,White,9.2,No,No,Negative,Negative
+GCA81,1,C-GCA,C-GCA TAB-,"(60, 70)",Female,White,8.2,No,Yes,Negative,Negative
+NGCA45,1,Not_C-GCA,Not_C-GCA,"(60, 70)",Male,White,8.3,No,No,Negative,Positive
+NGCA17,1,Not_C-GCA,Not_C-GCA,"(60, 70)",Female,White,10.7,No,No,Negative,Negative
+NGCA69,12,Not_C-GCA,Not_C-GCA,"(60, 70)",Female,White,9.8,No,Yes,Negative,Positive
+NGCA62,12,Not_C-GCA,Not_C-GCA,"(60, 70)",Female,White,10.5,No,No,Negative,Positive
+GCA137,36,C-GCA,C-GCA TAB-,"(60, 70)",Female,White,8.6,No,No,Negative,Negative
+NGCA53,10,Not_C-GCA,Not_C-GCA,"(60, 70)",Female,White,9.6,Yes,No,Negative,Positive
+NGCA22,1,Not_C-GCA,Not_C-GCA,"(60, 70)",Female,White,10.5,No,No,Negative,Positive
+NGCA84,1,Not_C-GCA,Not_C-GCA,"(60, 70)",Female,White,10.5,No,No,Negative,Negative
+NGCA56,10,Not_C-GCA,Not_C-GCA,"(60, 70)",Male,White,9.1,No,No,Negative,Negative
+NGCA57,10,Not_C-GCA,Not_C-GCA,"(60, 70)",Female,White,9,No,Yes,Negative,Negative
+NGCA59,12,Not_C-GCA,Not_C-GCA,"(60, 70)",Female,White,10.9,Yes,No,Negative,Negative
+GCA101,12,C-GCA,C-GCA TAB-,"(60, 70)",Female,White,9.5,No,No,Negative,Positive
+GCA47,24,C-GCA,C-GCA TAB+,"(60, 70)",Female,White,9.1,No,Yes,Positive,Negative
+GCA82,1,C-GCA,C-GCA TAB-,"(60, 70)",Female,White,8.1,No,Yes,Negative,Negative
+GCA130,27,C-GCA,C-GCA TAB-,"(60, 70)",Male,White,8.1,No,No,Negative,Negative
+GCA68,1,C-GCA,C-GCA TAB-,"(60, 70)",Female,White,10.8,No,No,Negative,Negative
+GCA110,12,C-GCA,C-GCA TAB-,"(60, 70)",Male,White,9,No,No,Negative,Negative
+GCA76,1,C-GCA,C-GCA TAB-,"(60, 70)",Male,White,9.7,No,No,Negative,Negative
+GCA63,1,C-GCA,C-GCA TAB-,"(60, 70)",Female,White,11.2,No,No,Negative,Negative
+NGCA23,1,Not_C-GCA,Not_C-GCA,"(60, 70)",Female,White,10.5,Yes,No,Negative,Positive
+NGCA12,1,Not_C-GCA,Not_C-GCA,"(60, 70)",Female,White,11.1,No,No,Negative,Positive
+NGCA82,34,Not_C-GCA,Not_C-GCA,"(60, 70)",Female,White,8.2,No,No,Negative,Positive
+GCA46,21,C-GCA,C-GCA TAB+,"(60, 70)",Female,White,9.2,No,No,Positive,Positive
+GCA96,12,C-GCA,C-GCA TAB-,"(60, 70)",Male,White,10,No,No,Negative,Positive
+NGCA26,1,Not_C-GCA,Not_C-GCA,"(60, 70)",Female,White,10.2,Yes,No,Negative,Positive
+NGCA24,1,Not_C-GCA,Not_C-GCA,"(60, 70)",Female,White,10.5,No,No,Negative,Positive
+NGCA50,3,Not_C-GCA,Not_C-GCA,"(60, 70)",Female,White,8.9,No,No,Negative,Negative
+NGCA70,12,Not_C-GCA,Not_C-GCA,"(60, 70)",Female,White,9.7,No,No,Negative,Positive
+NGCA61,12,Not_C-GCA,Not_C-GCA,"(60, 70)",Male,White,10.9,No,No,Negative,Negative
+GCA89,12,C-GCA,C-GCA TAB-,"(70, 80)",Female,White,11.2,Yes,No,Negative,Positive
+GCA32,12,C-GCA,C-GCA TAB+,"(70, 80)",Female,White,9.9,No,Yes,Positive,Negative
+GCA106,12,C-GCA,C-GCA TAB-,"(70, 80)",Female,White,9.2,Yes,No,Negative,Positive
+GCA38,12,C-GCA,C-GCA TAB+,"(70, 80)",Male,White,9.1,No,Yes,Positive,Positive
+GCA127,24,C-GCA,C-GCA TAB-,"(70, 80)",Female,White,8.6,No,No,Negative,Positive
+GCA123,21,C-GCA,C-GCA TAB-,"(70, 80)",Female,White,9.2,No,Yes,Negative,Negative
+NGCA80,34,Not_C-GCA,Not_C-GCA,"(70, 80)",Male,White,8.7,No,No,Negative,Negative
+NGCA85,1,Not_C-GCA,Not_C-GCA,"(70, 80)",Male,White,9.1,No,No,Negative,Negative
+GCA18,10,C-GCA,C-GCA TAB+,"(70, 80)",Female,White,9.3,No,No,Positive,Negative
+GCA120,18,C-GCA,C-GCA TAB-,"(70, 80)",Male,White,8.8,No,No,Negative,Positive
+GCA24,12,C-GCA,C-GCA TAB+,"(70, 80)",Male,Other,10.9,No,No,Positive,Positive
+GCA49,29,C-GCA,C-GCA TAB+,"(70, 80)",Male,White,9,No,No,Positive,Positive
+GCA35,12,C-GCA,C-GCA TAB+,"(70, 80)",Female,White,9.7,No,No,Positive,Positive
+GCA115,15,C-GCA,C-GCA TAB-,"(70, 80)",Female,White,8.4,No,No,Negative,Negative
+GCA57,1,C-GCA,C-GCA TAB-,"(70, 80)",Male,White,11.6,Yes,No,Negative,Negative
+GCA132,29,C-GCA,C-GCA TAB-,"(70, 80)",Male,White,8.9,Yes,No,Negative,Negative
+GCA74,1,C-GCA,C-GCA TAB-,"(70, 80)",Female,White,9.9,No,Yes,Negative,Negative
+GCA138,1,C-GCA,C-GCA TAB-,"(70, 80)",Male,White,10.3,No,No,Negative,Negative
+GCA103,12,C-GCA,C-GCA TAB-,"(70, 80)",Female,White,9.3,Yes,No,Negative,Negative
+GCA126,24,C-GCA,C-GCA TAB-,"(70, 80)",Male,White,8.7,No,No,Negative,Negative
+GCA85,10,C-GCA,C-GCA TAB-,"(70, 80)",Female,White,9.4,No,No,Negative,Negative
+NGCA41,1,Not_C-GCA,Not_C-GCA,"(70, 80)",Female,White,9.2,No,No,Negative,Negative
+NGCA31,1,Not_C-GCA,Not_C-GCA,"(70, 80)",Male,White,9.8,No,No,Negative,Negative
+GCA8,1,C-GCA,C-GCA TAB+,"(70, 80)",Female,White,10.1,No,No,Positive,Negative
+GCA37,12,C-GCA,C-GCA TAB+,"(70, 80)",Female,White,9.2,No,No,Positive,Positive
+GCA95,12,C-GCA,C-GCA TAB-,"(70, 80)",Female,White,10.1,No,No,Negative,Positive
+GCA40,12,C-GCA,C-GCA TAB+,"(70, 80)",Male,White,8.1,No,No,Positive,Positive
+GCA143,34,C-GCA,C-GCA TAB-,"(70, 80)",Female,White,9.3,No,No,Negative,Negative
+GCA113,15,C-GCA,C-GCA TAB-,"(70, 80)",Female,White,8.6,Yes,No,Negative,Negative
+NGCA15,1,Not_C-GCA,Not_C-GCA,"(70, 80)",Female,White,10.9,No,No,Negative,Positive
+GCA62,1,C-GCA,C-GCA TAB-,"(70, 80)",Male,White,11.3,No,No,Negative,Positive
+GCA86,10,C-GCA,C-GCA TAB-,"(70, 80)",Female,White,9.4,Yes,No,Negative,Positive
+GCA51,34,C-GCA,C-GCA TAB+,"(70, 80)",Female,White,9,No,Yes,Positive,Negative
+GCA3,1,C-GCA,C-GCA TAB+,"(70, 80)",Male,White,10.9,No,No,Positive,Positive
+GCA88,12,C-GCA,C-GCA TAB-,"(70, 80)",Female,White,11.2,No,Yes,Negative,Positive
+GCA34,12,C-GCA,C-GCA TAB+,"(70, 80)",Male,White,9.8,No,No,Positive,Positive
+GCA65,1,C-GCA,C-GCA TAB-,"(70, 80)",Female,White,11.1,No,No,Negative,Negative
+GCA140,12,C-GCA,C-GCA TAB-,"(70, 80)",Female,White,10.3,No,No,Negative,Negative
+GCA116,15,C-GCA,C-GCA TAB-,"(70, 80)",Female,White,8.2,No,No,Negative,Negative
+GCA83,3,C-GCA,C-GCA TAB-,"(70, 80)",Female,White,10.3,No,No,Negative,Negative
+NGCA44,1,Not_C-GCA,Not_C-GCA,"(70, 80)",Female,White,8.6,Yes,No,Negative,Negative
+NGCA4,1,Not_C-GCA,Not_C-GCA,"(70, 80)",Male,White,11.5,No,No,Negative,Negative
+NGCA63,12,Not_C-GCA,Not_C-GCA,"(70, 80)",Male,White,10.4,No,No,Negative,Negative
+NGCA2,1,Not_C-GCA,Not_C-GCA,"(70, 80)",Male,White,11.6,No,No,Negative,Negative
+GCA6,1,C-GCA,C-GCA TAB+,"(70, 80)",Female,White,10.1,Yes,Yes,Positive,Positive
+GCA11,1,C-GCA,C-GCA TAB+,"(70, 80)",Female,White,9.3,No,No,Positive,Negative
+GCA100,12,C-GCA,C-GCA TAB-,"(70, 80)",Female,White,9.5,No,No,Negative,Positive
+GCA99,12,C-GCA,C-GCA TAB-,"(70, 80)",Female,White,9.5,No,No,Negative,Positive
+GCA94,12,C-GCA,C-GCA TAB-,"(70, 80)",Male,White,10.3,No,Yes,Negative,Negative
+NGCA36,1,Not_C-GCA,Not_C-GCA,"(70, 80)",Female,White,9.5,No,No,Negative,Positive
+NGCA38,1,Not_C-GCA,Not_C-GCA,"(70, 80)",Male,White,9.5,No,No,Negative,Negative
+NGCA6,1,Not_C-GCA,Not_C-GCA,"(70, 80)",Female,White,11.3,No,No,Negative,Negative
+NGCA47,3,Not_C-GCA,Not_C-GCA,"(70, 80)",Female,White,9.6,No,No,Negative,Negative
+NGCA58,12,Not_C-GCA,Not_C-GCA,"(70, 80)",Female,White,11.1,Yes,No,Negative,Negative
+GCA131,29,C-GCA,C-GCA TAB-,"(70, 80)",Female,White,9.8,No,No,Negative,Positive
+GCA93,12,C-GCA,C-GCA TAB-,"(70, 80)",Female,White,10.5,Yes,No,Negative,Positive
+GCA128,24,C-GCA,C-GCA TAB-,"(70, 80)",Female,White,8.6,Yes,No,Negative,Positive
+GCA45,21,C-GCA,C-GCA TAB+,"(70, 80)",Female,White,9.7,Yes,No,Positive,Positive
+GCA14,3,C-GCA,C-GCA TAB+,"(70, 80)",Male,White,8.7,No,No,Positive,Positive
+GCA27,12,C-GCA,C-GCA TAB+,"(70, 80)",Female,White,10.6,No,No,Positive,Positive
+GCA42,17,C-GCA,C-GCA TAB+,"(70, 80)",Female,White,9.8,No,No,Positive,Positive
+GCA135,34,C-GCA,C-GCA TAB-,"(70, 80)",Female,White,8.7,No,No,Negative,Positive
+GCA43,18,C-GCA,C-GCA TAB+,"(70, 80)",Female,White,9.5,No,No,Positive,Positive
+GCA107,12,C-GCA,C-GCA TAB-,"(70, 80)",Female,White,9,No,No,Negative,Negative
+GCA61,1,C-GCA,C-GCA TAB-,"(70, 80)",Female,White,11.3,No,No,Negative,Negative
+NGCA48,3,Not_C-GCA,Not_C-GCA,"(70, 80)",Female,White,9.5,No,No,Negative,Negative
+NGCA65,12,Not_C-GCA,Not_C-GCA,"(70, 80)",Female,White,10.4,No,Yes,Negative,Positive
+GCA66,1,C-GCA,C-GCA TAB-,"(70, 80)",Male,White,10.9,No,No,Negative,Positive
+GCA71,1,C-GCA,C-GCA TAB-,"(70, 80)",Female,White,10.3,No,Yes,Negative,Positive
+GCA77,1,C-GCA,C-GCA TAB-,"(70, 80)",Female,White,9.5,Yes,No,Negative,Positive
+GCA1,1,C-GCA,C-GCA TAB+,"(70, 80)",Female,White,11.3,No,Yes,Positive,Negative
+NGCA5,1,Not_C-GCA,Not_C-GCA,"(70, 80)",Female,White,11.5,Yes,No,Negative,Positive
+GCA19,10,C-GCA,C-GCA TAB+,"(70, 80)",Female,White,9.2,No,No,Positive,Negative
+GCA98,12,C-GCA,C-GCA TAB-,"(70, 80)",Female,White,9.6,No,No,Negative,Positive
+GCA92,12,C-GCA,C-GCA TAB-,"(70, 80)",Female,White,10.5,No,Yes,Negative,Positive
+GCA67,1,C-GCA,C-GCA TAB-,"(70, 80)",Female,White,10.9,No,No,Negative,Positive
+GCA7,1,C-GCA,C-GCA TAB+,"(70, 80)",Female,White,10.1,No,Yes,Positive,Negative
+GCA22,12,C-GCA,C-GCA TAB+,"(70, 80)",Male,White,11.1,Yes,No,Positive,Positive
+GCA44,18,C-GCA,C-GCA TAB+,"(70, 80)",Female,White,8.5,No,No,Positive,Positive
+GCA13,3,C-GCA,C-GCA TAB+,"(70, 80)",Male,White,8.8,No,No,Positive,Positive
+GCA75,1,C-GCA,C-GCA TAB-,"(70, 80)",Female,White,9.9,No,No,Negative,Negative
+NGCA20,1,Not_C-GCA,Not_C-GCA,"(70, 80)",Female,White,10.7,No,No,Negative,Negative
+NGCA78,24,Not_C-GCA,Not_C-GCA,"(70, 80)",Female,White,9.6,No,No,Negative,Positive
+GCA29,12,C-GCA,C-GCA TAB+,"(70, 80)",Male,White,10.2,No,No,Positive,Positive
+GCA21,10,C-GCA,C-GCA TAB+,"(70, 80)",Female,White,8.2,No,No,Positive,Positive
+GCA52,34,C-GCA,C-GCA TAB+,"(70, 80)",Female,White,8.5,No,No,Positive,Negative
+GCA20,10,C-GCA,C-GCA TAB+,"(70, 80)",Female,White,8.2,No,No,Positive,Positive
+GCA112,12,C-GCA,C-GCA TAB-,"(70, 80)",Female,White,8.9,No,No,Negative,Positive
+GCA149,12,C-GCA,"C-GCA, no TAB","(70, 80)",Female,White,9.7,Yes,No,,Positive
+GCA148,12,C-GCA,"C-GCA, no TAB","(70, 80)",Female,White,9.7,Yes,No,,Positive
+GCA5,1,C-GCA,C-GCA TAB+,"(70, 80)",Male,White,10.2,No,Yes,Positive,Negative
+GCA17,3,C-GCA,C-GCA TAB+,"(70, 80)",Male,White,8.3,No,No,Positive,Positive
+GCA56,12,C-GCA,C-GCA TAB+,"(70, 80)",Male,White,9.1,Yes,No,Positive,Positive
+GCA146,1,C-GCA,"C-GCA, no TAB","(70, 80)",Female,White,10.3,No,No,,Negative
+GCA114,15,C-GCA,C-GCA TAB-,"(70, 80)",Male,White,8.6,No,No,Negative,Negative
+GCA78,1,C-GCA,C-GCA TAB-,"(70, 80)",Male,White,9.2,No,No,Negative,Negative
+NGCA28,1,Not_C-GCA,Not_C-GCA,"(70, 80)",Female,White,10.1,No,No,Negative,Positive
+NGCA27,1,Not_C-GCA,Not_C-GCA,"(70, 80)",Female,White,10.1,No,No,Negative,Negative
+GCA147,1,C-GCA,"C-GCA, no TAB","(70, 80)",Female,White,8.3,No,No,,Positive
+GCA2,1,C-GCA,C-GCA TAB+,"(70, 80)",Female,White,11.2,No,No,Positive,Positive
+GCA54,10,C-GCA,C-GCA TAB+,"(70, 80)",Male,White,9.1,Yes,No,Positive,Positive
+GCA26,12,C-GCA,C-GCA TAB+,"(70, 80)",Male,White,10.8,Yes,No,Positive,Positive
+GCA64,1,C-GCA,C-GCA TAB-,"(70, 80)",Male,White,11.1,No,No,Negative,Negative
+GCA72,1,C-GCA,C-GCA TAB-,"(70, 80)",Female,White,10.2,Yes,No,Negative,Negative
+NGCA81,34,Not_C-GCA,Not_C-GCA,"(70, 80)",Male,White,8.5,No,No,Negative,Negative
+NGCA19,1,Not_C-GCA,Not_C-GCA,"(70, 80)",Male,White,10.7,No,No,Negative,Positive
+NGCA46,3,Not_C-GCA,Not_C-GCA,"(70, 80)",Female,White,10.2,No,No,Negative,Negative
+GCA30,12,C-GCA,C-GCA TAB+,"(70, 80)",Female,White,10,No,No,Positive,Positive
+NGCA88,18,Not_C-GCA,Not_C-GCA,"(70, 80)",Female,White,9.4,No,No,Negative,Negative
+NGCA60,12,Not_C-GCA,Not_C-GCA,"(70, 80)",Female,White,10.9,Yes,No,Negative,Negative
+GCA80,1,C-GCA,C-GCA TAB-,"(70, 80)",Female,White,8.4,No,No,Negative,Negative
+GCA139,1,C-GCA,C-GCA TAB-,"(70, 80)",Female,White,9.9,No,No,Negative,Negative
+GCA117,17,C-GCA,C-GCA TAB-,"(70, 80)",Female,White,9.7,No,No,Negative,Negative
+NGCA52,10,Not_C-GCA,Not_C-GCA,"(70, 80)",Female,White,9.8,No,No,Negative,Negative
+NGCA37,1,Not_C-GCA,Not_C-GCA,"(70, 80)",Female,White,9.5,No,No,Negative,Negative
+GCA129,24,C-GCA,C-GCA TAB-,"(70, 80)",Male,White,8.5,Yes,No,Negative,Negative
+GCA12,3,C-GCA,C-GCA TAB+,"(70, 80)",Female,White,9,No,Yes,Positive,Positive
+GCA36,12,C-GCA,C-GCA TAB+,"(70, 80)",Female,White,9.4,Yes,No,Positive,Positive
+GCA60,1,C-GCA,C-GCA TAB-,"(70, 80)",Female,White,11.3,No,No,Negative,Positive
+GCA55,12,C-GCA,C-GCA TAB+,"(70, 80)",Male,White,9.1,Yes,Yes,Positive,Positive
+GCA25,12,C-GCA,C-GCA TAB+,"(70, 80)",Female,White,10.8,Yes,No,Positive,Positive
+GCA91,12,C-GCA,C-GCA TAB-,"(70, 80)",Female,White,10.7,No,No,Negative,Negative
+NGCA39,1,Not_C-GCA,Not_C-GCA,"(70, 80)",Male,White,9.3,No,No,Negative,Negative
+NGCA55,10,Not_C-GCA,Not_C-GCA,"(70, 80)",Female,White,9.2,Yes,No,Negative,Negative
+GCA39,12,C-GCA,C-GCA TAB+,"(70, 80)",Female,White,9,No,No,Positive,Positive
+GCA73,1,C-GCA,C-GCA TAB-,"(70, 80)",Female,White,10,Yes,No,Negative,Negative
+NGCA42,1,Not_C-GCA,Not_C-GCA,"(70, 80)",Female,White,9.2,Yes,Yes,Negative,Negative
+GCA141,24,C-GCA,C-GCA TAB-,"(70, 80)",Female,White,9.7,Yes,No,Negative,Negative
+NGCA30,1,Not_C-GCA,Not_C-GCA,"(70, 80)",Female,White,10,No,No,Negative,Negative
+NGCA49,3,Not_C-GCA,Not_C-GCA,"(70, 80)",Female,White,9.2,No,No,Negative,Negative
+NGCA67,12,Not_C-GCA,Not_C-GCA,"(70, 80)",Male,White,10.1,No,No,Negative,Positive
+NGCA64,12,Not_C-GCA,Not_C-GCA,"(70, 80)",Female,White,10.4,No,No,Negative,Positive
+GCA33,12,C-GCA,C-GCA TAB+,"(70, 80)",Female,White,9.9,Yes,No,Positive,Positive
+NGCA75,12,Not_C-GCA,Not_C-GCA,"(70, 80)",Female,White,9,Yes,No,Negative,Negative
+NGCA9,1,Not_C-GCA,Not_C-GCA,"(70, 80)",Female,White,11.3,Yes,No,Negative,Negative
+GCA31,12,C-GCA,C-GCA TAB+,"(80, 90)",Female,White,9.9,No,No,Positive,Positive
+GCA87,12,C-GCA,C-GCA TAB-,"(80, 90)",Female,White,11.2,No,No,Negative,Negative

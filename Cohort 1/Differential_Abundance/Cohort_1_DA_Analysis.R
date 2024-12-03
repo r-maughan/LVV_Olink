@@ -1,0 +1,352 @@
+
+# Functions ---------------------------------------------------------------
+
+####Load Libraries====
+libs_load <- function(x){
+  for( i in x ){
+    print(paste0("Checking for library: ", i))
+    if(require( i , character.only = TRUE ) ){
+      print(paste0(i, " already installed. Loading now"))
+    }
+    #  require returns TRUE invisibly if it was able to load package
+    if( ! require( i , character.only = TRUE ) ){
+      print(paste0(i, " not installed. Trying CRAN for install."))
+      #  If package was not able to be loaded then re-install
+      install.packages( i , dependencies = TRUE )
+      require( i , character.only = TRUE )
+      paste0(i, " installed and loaded successfully")
+    }
+    if ( ! require(i, character.only=TRUE) ) {
+      paste0(i," could not be installed from CRAN. Trying Bionconductor....")
+      BiocManager::install(i)
+      require( i , character.only = TRUE )
+      paste0(i, " installed and loaded successfully")
+    }
+    if ( ! require(i, character.only=TRUE) ) {
+      paste0(i, "could not be installed. Check manually")
+    }
+    #  Load package after installing
+  }
+}
+#Usage:
+#libs_load(c("...", "..."))
+
+#### Linear Model differential abundance function ----
+#for this function, the grouping variable for testing must be in first column and ideally be a 2 level factor
+#Can be modified for different designs
+
+lm_da<-function(data, group_var){
+  
+  lmfit <- vector('list', ncol(data)-1)
+  names(lmfit) <- colnames(data)[-1]
+  
+  for (i in 1:(ncol(data)-1)){
+    lmfit[[i]] <- summary(lm(data[,i+1]~group_var))$coefficients
+  }
+  
+  LM_res<-data.frame(
+    Protein = character(0),
+    Estimate = numeric(0),
+    Std.Error = numeric(0),
+    T.Value = numeric(0),
+    Pval = numeric(0)
+  )
+  
+  for (i in seq_along(lmfit)) {
+    # Extract relevant information
+    protein_name <- names(lmfit)[i]
+    x<-lmfit[[i]]
+    Est <- x[2,1]
+    SD <- x[2,2]
+    Tval <- x[2,3]
+    P <- x[2,4]
+    
+    LM_res <- rbind(LM_res, data.frame(
+      Protein = protein_name,
+      Estimate = Est,
+      Std.Error = SD,
+      T.Value = Tval,
+      Pval = P
+    ))
+  }
+  LM_res$Pval.bh <- p.adjust(LM_res$Pval, method = "BH")
+  LM_res <- LM_res[with(LM_res, order(LM_res$Pval, -LM_res$Estimate)),]
+  LM_res$Significance <- ifelse(LM_res$Pval.bh < 0.05, "DE", "Not DE")
+  
+  return(LM_res)
+}
+
+#### Create Volcano Plot Function ----
+#this function expects the output from the lm_da funciton and will return a ggplot volcano plot, requires above packages
+
+create_volcano_plot <- function(data, title) {
+  data <- data %>%
+    mutate(LogP = -log10(Pval.bh),
+           Colour = case_when(
+             Significance == "Not DE" ~ "Not Significant",
+             Significance == "DE" & Estimate > 0 ~ "Upregulated P.adj<0.05",
+             Significance == "DE" & Estimate < 0 ~ "Downregulated P.adj<0.05"
+           ))
+  
+  plot <- ggplot(data, aes(x = Estimate, y = LogP, colour = factor(Colour, levels = c("Not Significant", "Downregulated P.adj<0.05", "Upregulated P.adj<0.05")))) +
+    geom_point(size = 3, alpha = 0.5, shape = 16) +
+    scale_colour_manual(values = c("black", "blue", "red")) +
+    ylab("-log10(P.adj)") +
+    xlab("Log2 Fold Change") +
+    labs(colour = "Adjusted P value", y = expression(-Log10(P["adj"]))) +
+    ggtitle(title) +
+    theme_classic() +
+    geom_text_repel(data = subset(data, Pval.bh < 0.05), aes(label = Protein), size = 3, colour = "black") +
+    geom_vline(xintercept = 0, linetype = "solid", color = "grey") +
+    geom_hline(yintercept = 1.3, linetype = "dashed", color = "grey") +
+    guides(color = "none") +
+    theme(plot.title = element_text(hjust = 0.5, face = "bold"))
+  return (plot)
+}
+
+# Libraries ---------------------------------------------------------------
+
+libs_load(c("tidyr", "tidyverse", "pheatmap", "factoextra", "FactoMineR", "dplyr", "ggplot2", "ggrepel","this.path"))
+
+# Set up file paths & output directories  ------------------------------------------------------------
+
+# Root
+setwd(this.path::here())
+DA_ROOT= this.path::here()
+
+# Input
+INPUT_DIR<-paste0(DA_ROOT, "/Input_Data")
+
+# Output directories
+OUTPUT_DIR <- paste0(DA_ROOT, "/Output")
+# Check if the Output directory exists (Avoids overwriting)
+if (!dir.exists(OUTPUT_DIR)) {
+  # If it doesn't exist, create the directory
+  dir.create(OUTPUT_DIR, recursive = TRUE)
+  message("Directory created: ", OUTPUT_DIR)
+} else {
+  message("Directory already exists: ", OUTPUT_DIR)
+}
+
+#Directory for Case vs Control Results
+CASE_CTRL_DIR <- paste0(OUTPUT_DIR, "/Case_Ctrl")
+if (!dir.exists(CASE_CTRL_DIR)) {
+  # If it doesn't exist, create the directory
+  dir.create(CASE_CTRL_DIR, recursive = TRUE)
+  message("Directory created: ", CASE_CTRL_DIR)
+} else {
+  message("Directory already exists: ", CASE_CTRL_DIR)
+}
+
+#Directory for TAK vs LV-GCA Results
+TAK_LVGCA_DIR <- paste0(OUTPUT_DIR, "/TAK_LVGCA")
+if (!dir.exists(TAK_LVGCA_DIR)) {
+  # If it doesn't exist, create the directory
+  dir.create(TAK_LVGCA_DIR, recursive = TRUE)
+  message("Directory created: ", TAK_LVGCA_DIR)
+} else {
+  message("Directory already exists: ", TAK_LVGCA_DIR)
+}
+
+#Directory for Active vs Inactive Results
+ACTIVE_INACTIVE_DIR <- paste0(OUTPUT_DIR, "/Active_Inactive")
+if (!dir.exists(ACTIVE_INACTIVE_DIR)) {
+  # If it doesn't exist, create the directory
+  dir.create(ACTIVE_INACTIVE_DIR, recursive = TRUE)
+  message("Directory created: ", ACTIVE_INACTIVE_DIR)
+} else {
+  message("Directory already exists: ", ACTIVE_INACTIVE_DIR)
+}
+
+#Directory for Inactive vs HC Results
+INACTIVE_HC_DIR <- paste0(OUTPUT_DIR, "/Inactive_HC")
+if (!dir.exists(INACTIVE_HC_DIR)) {
+  # If it doesn't exist, create the directory
+  dir.create(INACTIVE_HC_DIR, recursive = TRUE)
+  message("Directory created: ", INACTIVE_HC_DIR)
+} else {
+  message("Directory already exists: ", INACTIVE_HC_DIR)
+}
+
+#Directory for Active vs HC Results
+ACTIVE_HC_DIR <- paste0(OUTPUT_DIR, "/Active_HC")
+if (!dir.exists(ACTIVE_HC_DIR)) {
+  # If it doesn't exist, create the directory
+  dir.create(ACTIVE_HC_DIR, recursive = TRUE)
+  message("Directory created: ", ACTIVE_HC_DIR)
+} else {
+  message("Directory already exists: ", ACTIVE_HC_DIR)
+}
+
+# Read in data & Conduct exploratory analysis ------------------------------------------------
+
+C1_data <- read.csv(paste0(INPUT_DIR,'/Cohort 1 Post QC Data.csv'))
+C1_data<-as.data.frame(C1_data)
+
+#Association of protein abundance with Group 
+#Supplemental Figure PCA Plot
+
+#3 samples have NA NPX values for all inflammation assays. Will need to omit these from PCA
+dim(C1_data[,8:165])
+dim(na.omit(C1_data[,8:165]))
+#Run PCA on matrix of NPX values - with 3x NA cases removed
+PCA_LVV<-PCA(na.omit(C1_data[,8:165]), scale.unit=TRUE,graph=FALSE)
+
+#Create group factor variable for colour labels on plot, taking into account omitted NA cases
+grp<-C1_data %>% filter(!(SampleID %in% c('HC23.1', 'T125.2', 'T43.1'))) %>% select(Group) 
+grp<-as.factor(grp[,1])
+grp<-factor(grp,levels=c("HC", "TAK","LV.GCA"))
+#Create initial PCA ggplot
+p<-fviz_pca_ind(PCA_LVV,habillage=grp,label="none",pointsize=1.8,mean.point=FALSE, addEllipses = FALSE)
+#Customise labels and titles
+p<-p +  theme_bw()+scale_color_manual(values=c("HC"="#b3b3b3","TAK"="#ec825b", "LV.GCA"="#487989")) +
+  theme(legend.position="bottom",axis.title=element_text(face="bold"),legend.title=element_text(face="bold"), plot.title=element_text(face="bold",hjust=0.5))+
+  labs(title="PCA: All Groups", x="PC1 (21.8% variation)",y="PC2 (8.4% variation)")
+p#check plot
+ggsave("Figure S2A Cohort 1 PCA by group.png", path=CASE_CTRL_DIR, plot=p,dpi=300, height=15, width=12, units="cm") #save plot
+
+
+# Case vs Control DA analyses ---------------------------------------------------------------
+
+###Subset the groups intended for case control analyses (Figure 2)  ----
+
+#TAK vs HC
+TAK_HC<- C1_data %>% select(-SampleID, -Subgroup, -Age_bin, -Sex, -Ethnicity, -Freezer_Time) %>% filter(Group=="HC" | Group=="TAK")
+summary(as.factor(TAK_HC$Group))
+#LV-GCA vs HC
+LVGCA_HC<- C1_data %>% select(-SampleID, -Subgroup, -Age_bin, -Sex, -Ethnicity, -Freezer_Time) %>% filter(Group=="HC" | Group=="LV.GCA")
+summary(as.factor(LVGCA_HC$Group))
+#And head to head TAK vs LV-GCA
+TAK_LVGCA<- C1_data %>% select(-SampleID, -Subgroup, -Age_bin, -Sex, -Ethnicity, -Freezer_Time) %>% filter(Group=="TAK" | Group=="LV.GCA")
+summary(as.factor(TAK_LVGCA$Group))
+
+###TAK vs HC (Figure 2A)  ----
+TAK_HC_res<-lm_da(TAK_HC, TAK_HC$Group) #Run the function
+summary(as.factor(TAK_HC_res$Significance)) #check DE results
+write.table(TAK_HC_res,paste0(CASE_CTRL_DIR,"/TAK vs HC DA results.csv"),sep=",") #save results
+
+#Create volcano plot, set wd and save
+TAK_HC_volcano<-create_volcano_plot(TAK_HC_res,"TAK vs Healthy Control")
+TAK_HC_volcano
+ggsave("Figure 2A TAK vs HC Volcano.png",  path=CASE_CTRL_DIR, plot=TAK_HC_volcano,dpi=300, height=15, width=14, units="cm")                        
+
+###LV-GCA vs HC (Figure 2B) ----
+LVGCA_HC_res<-lm_da(LVGCA_HC, LVGCA_HC$Group) #Run the function
+summary(as.factor(LVGCA_HC_res$Significance)) #check DE results
+write.table(LVGCA_HC_res, paste0(CASE_CTRL_DIR,"/LV-GCA vs HC DA results.csv"),sep=",") #save results
+
+#Create volcano plot, set wd and save
+LVGCA_HC_volcano<-create_volcano_plot(LVGCA_HC_res,"LV-GCA vs Healthy Control")
+LVGCA_HC_volcano
+ggsave("Figure 2B LV-GCA vs HC Volcano.png", path=CASE_CTRL_DIR, plot=LVGCA_HC_volcano,dpi=300, height=15, width=14, units="cm")                        
+
+###TAK vs LV-GCA (Supplemental Figure S3 ) ----
+TAK_LVGCA_res<-lm_da(TAK_LVGCA, factor(TAK_LVGCA$Group,levels=c("TAK","LV.GCA"))) #Run the function
+summary(as.factor(TAK_LVGCA_res$Significance)) #check DE results
+write.table(TAK_LVGCA_res, paste0(TAK_LVGCA_DIR,"/TAK vs LV-GCA DA results.csv"),sep=",") #Save results
+ 
+#Create volcano plot, set wd and save
+TAK_LVGCA_volcano<-create_volcano_plot(TAK_LVGCA_res,"TAK vs LV-GCA")
+TAK_LVGCA_volcano
+ggsave("TAK vs LV-GCA Volcano.png",path=TAK_LVGCA_DIR, plot=TAK_LVGCA_volcano,dpi=300, height=15, width=14, units="cm")                        
+
+# Within case disease activity analysis (Figure 3)-------------------------------------------------------
+
+###Subset the groups needed  ----
+#TAK inactive vs active
+TAK_active<- C1_data %>% select(-SampleID, -Group, -Age_bin, -Sex, -Ethnicity, -Freezer_Time) %>% filter(Subgroup=="TAK_Active" | Subgroup=="TAK_Inactive")
+TAK_active$Subgroup<-as.factor(TAK_active$Subgroup)
+summary(TAK_active$Subgroup)
+TAK_active$Subgroup<-relevel(TAK_active$Subgroup,ref="TAK_Inactive")
+#LV-GCA inactive vs active
+LVGCA_active<- C1_data %>% select(-SampleID, -Group, -Age_bin, -Sex, -Ethnicity, -Freezer_Time) %>% filter(Subgroup=="LV.GCA_Active" | Subgroup=="LV.GCA_Inactive")
+LVGCA_active$Subgroup<-as.factor(LVGCA_active$Subgroup)
+summary(LVGCA_active$Subgroup)
+LVGCA_active$Subgroup<-relevel(LVGCA_active$Subgroup,ref="LV.GCA_Inactive")
+
+###TAK Activity  ----
+TAK_active_res<-lm_da(TAK_active, TAK_active$Subgroup) #run the function
+summary(as.factor(TAK_active_res$Significance)) # check results
+write.table(TAK_active_res,paste0(ACTIVE_INACTIVE_DIR,"/Active TAK vs Inactive TAK DA results.csv"),sep=",") #Save results
+
+#Create volcano plot, set wd and save
+TAK_active_volcano<-create_volcano_plot(TAK_active_res,"Active TAK vs Inactive TAK")
+TAK_active_volcano
+ggsave("Active TAK vs Inactive TAK Volcano.png",path=ACTIVE_INACTIVE_DIR, plot=TAK_active_volcano,dpi=300, height=15, width=14, units="cm")                        
+
+###LV-GCA Activity  ----
+LVGCA_active_res<-lm_da(LVGCA_active, LVGCA_active$Subgroup) #run the function
+summary(as.factor(LVGCA_active_res$Significance)) ##check results
+write.table(LVGCA_active_res,paste0(ACTIVE_INACTIVE_DIR, "/Active LV-GCA vs Inactive LV-GCA DA results.csv"),sep=",") #Save results
+
+#Create volcano plot, set wd and save
+LVGCA_active_volcano<-create_volcano_plot(LVGCA_active_res,"Active LV-GCA vs Inactive LV-GCA")
+LVGCA_active_volcano
+ggsave("Active LV-GCA vs Inactive LV-GCA Volcano.png", path=ACTIVE_INACTIVE_DIR, plot=LVGCA_active_volcano,dpi=300, height=15, width=14, units="cm") 
+
+# Inactive TAK & LV-GCA vs HC Analysis -------------------------------------------------------
+
+###Subset the groups  ----
+TAKi_HC<- C1_data %>% filter(Group=="HC" | Subgroup=="TAK_Inactive") %>% select(-SampleID, -Group, -Age_bin, -Sex, -Ethnicity, -Freezer_Time)
+TAKi_HC$Subgroup<-as.factor(TAKi_HC$Subgroup)
+TAKi_HC$Subgroup<-relevel(TAKi_HC$Subgroup,ref="HC")
+summary(TAKi_HC$Subgroup)
+
+LVGCAi_HC<- C1_data %>% filter(Group=="HC" | Subgroup=="LV.GCA_Inactive") %>% select(-SampleID, -Group, -Age_bin, -Sex, -Ethnicity, -Freezer_Time)
+LVGCAi_HC$Subgroup<-as.factor(LVGCAi_HC$Subgroup)
+LVGCAi_HC$Subgroup<-relevel(LVGCAi_HC$Subgroup,ref="HC")
+summary(LVGCAi_HC$Subgroup)  
+
+###Inactive TAK vs HC ----
+TAKi_HC_res<-lm_da(TAKi_HC, TAKi_HC$Subgroup) #run the function
+summary(as.factor(TAKi_HC_res$Significance)) ##check results
+write.table(TAKi_HC_res, paste0(INACTIVE_HC_DIR,"/Inactive TAK vs HC DA results.csv"),sep=",") #Save results
+
+#Create volcano plot, set wd and save
+TAKi_HC_volcano<-create_volcano_plot(TAKi_HC_res,"Inactive TAK vs HC")
+TAKi_HC_volcano
+ggsave("Inactive TAK vs HC Volcano.png", path=INACTIVE_HC_DIR, plot=TAKi_HC_volcano,dpi=300, height=15, width=14, units="cm") 
+
+###Inactive LV-GCA vs HC ----
+LVGCAi_HC_res<-lm_da(LVGCAi_HC, LVGCAi_HC$Subgroup) #run the function
+summary(as.factor(LVGCAi_HC_res$Significance)) ##check results
+write.table(LVGCAi_HC_res,paste0(INACTIVE_HC_DIR, "/Inactive LV-GCA vs HC DA results.csv"),sep=",") #Save results
+
+#Create volcano plot, set wd and save
+LVGCAi_HC_volcano<-create_volcano_plot(LVGCAi_HC_res,"Inactive LV-GCA vs HC")
+LVGCAi_HC_volcano
+ggsave("Inactive LV-GCA vs HC Volcano.png", path=INACTIVE_HC_DIR, plot=LVGCAi_HC_volcano,dpi=300, height=15, width=14, units="cm") 
+
+# Active LVV vs HC Analysis (Figure 5) -------------------------------------------------------
+
+###Subset the groups  ----
+TAKa_HC<- C1_data %>% filter(Group=="HC" | Subgroup=="TAK_Active") %>% select(-SampleID, -Group, -Age_bin, -Sex, -Ethnicity, -Freezer_Time)
+TAKa_HC$Subgroup<-as.factor(TAKa_HC$Subgroup)
+TAKa_HC$Subgroup<-relevel(TAKa_HC$Subgroup,ref="HC")
+summary(TAKa_HC$Subgroup)
+
+LVGCAa_HC<- C1_data %>% filter(Group=="HC" | Subgroup=="LV.GCA_Active") %>% select(-SampleID, -Group, -Age_bin, -Sex, -Ethnicity, -Freezer_Time)
+LVGCAa_HC$Subgroup<-as.factor(LVGCAa_HC$Subgroup)
+LVGCAa_HC$Subgroup<-relevel(LVGCAa_HC$Subgroup,ref="HC")
+summary(LVGCAa_HC$Subgroup)  
+
+###Active TAK vs HC ----
+TAKa_HC_res<-lm_da(TAKa_HC, TAKa_HC$Subgroup) #run the function
+summary(as.factor(TAKa_HC_res$Significance)) ##check results
+write.table(TAKa_HC_res,paste0(ACTIVE_HC_DIR, "/Active TAK vs HC DA results.csv"),sep=",") #Save results
+
+#Create volcano plot, set wd and save
+TAKa_HC_volcano<-create_volcano_plot(TAKa_HC_res,"Active TAK vs HC")
+TAKa_HC_volcano
+ggsave("Active TAK vs HC Volcano.png", path=ACTIVE_HC_DIR, plot=TAKa_HC_volcano,dpi=300, height=15, width=14, units="cm") 
+
+###Active LV-GCA vs HC ----
+LVGCAa_HC_res<-lm_da(LVGCAa_HC, LVGCAa_HC$Subgroup) #run the function
+summary(as.factor(LVGCAa_HC_res$Significance)) ##check results
+write.table(LVGCAa_HC_res,paste0(ACTIVE_HC_DIR, "/Active LV-GCA vs HC DA results.csv"),sep=",") #Save results
+
+#Create volcano plot, set wd and save
+LVGCAa_HC_volcano<-create_volcano_plot(LVGCAa_HC_res,"Active LV-GCA vs HC")
+LVGCAa_HC_volcano
+ggsave("Active LV-GCA vs HC Volcano.png",path=ACTIVE_HC_DIR,plot=LVGCAa_HC_volcano,dpi=300, height=15, width=14, units="cm") 
+
